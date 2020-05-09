@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="127dp"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/nature"
+        />
+
+    <Button
+        android:id="@+id/button_apporter_conseils"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorButton"
+        android:textColor="@color/textColorButton"
+        android:text="@string/apporter_conseils"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="127dp"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/bouee"
+        />
+
+    <Button
+        android:id="@+id/button_demander_aide"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorButton"
+        android:textColor="@color/textColorButton"
+        android:text="@string/demander_aide"/>
+</LinearLayout>

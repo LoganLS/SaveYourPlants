@@ -16,11 +16,16 @@ public class LoginActivity extends AppCompatActivity {
     Button mButtonLogin;
     TextView mTextViewRegister;
     DatabaseHelper db;
+    SessionManager session;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        // Session Manager
+        session = new SessionManager(getApplicationContext());
 
         db=new DatabaseHelper(this);
         mTextUsername=(EditText)findViewById(R.id.username);
@@ -44,6 +49,9 @@ public class LoginActivity extends AppCompatActivity {
                 Boolean res=db.checkUser(username,password);
 
                 if(res){
+                    // Creating user login session
+                    session.createLoginSession(username);
+
                     Toast.makeText(LoginActivity.this,"Connecté !", Toast.LENGTH_SHORT).show();
                     Intent HomeActivityScreen=new Intent(LoginActivity.this,HomeActivity.class);
                     startActivity(HomeActivityScreen);

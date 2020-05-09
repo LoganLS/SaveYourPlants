@@ -10,10 +10,10 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME="register.db";
-    public static final String TABLE_NAME="user";
-    public static final String COL_1="ID";
-    public static final String COL_2="username";
-    public static final String COL_3="password";
+    public static final String TABLE_USER="user";
+    public static final String COL_ID="ID";
+    public static final String COL_USERNAME="username";
+    public static final String COL_PASSWORD="password";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -26,26 +26,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
-        sqLiteDatabase.execSQL(" DROP TABLE IF EXISTS "+TABLE_NAME);
+        sqLiteDatabase.execSQL(" DROP TABLE IF EXISTS "+TABLE_USER);
         onCreate(sqLiteDatabase);
     }
 
     public long addUser(String username, String password){
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
-        contentValues.put("username",username);
-        contentValues.put("password",password);
+        contentValues.put(COL_USERNAME,username);
+        contentValues.put(COL_PASSWORD,password);
         long res=db.insert("user",null,contentValues);
         db.close();
         return res;
     }
 
     public boolean checkUser(String username, String password){
-        String[] columns={ COL_1 };
+        String[] columns={ COL_ID };
         SQLiteDatabase db = getReadableDatabase();
-        String selection=COL_2 +"=?"+" and "+COL_3+"=?";
+        String selection=COL_USERNAME +"=?"+" and "+COL_PASSWORD+"=?";
         String[] selectionArgs = {username,password};
-        Cursor cursor=db.query(TABLE_NAME,columns,selection,selectionArgs,null,null,null);
+        Cursor cursor=db.query(TABLE_USER,columns,selection,selectionArgs,null,null,null);
         int count=cursor.getCount();
         cursor.close();
         db.close();

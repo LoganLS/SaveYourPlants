@@ -7,4 +7,9 @@
     <string name="register">S\'inscrire</string>
     <string name="confirm_password">Confirmer le mot de passe</string>
     <string name="already_registered">Déjà un compte ?</string>
+    <string name="profil">Profil</string>
+    <string name="home">Home</string>
+    <string name="apporter_conseils">Apporter des conseils</string>
+    <string name="demander_aide">Demander de l\'aide</string>
+    <string name="deconnexion">Déconnexion</string>
 </resources>
